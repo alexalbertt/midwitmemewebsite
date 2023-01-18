@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '../../lib/prisma';
 import { getSession } from 'next-auth/react';
 
+// Get all likes for a user
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const session = await getSession({ req });

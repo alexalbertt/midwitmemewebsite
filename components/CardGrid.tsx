@@ -8,14 +8,15 @@ interface Props {
   tweets: Tweet[]
 }
 
+// Represents the grid of TweetCards
 const CardGrid: NextPage<Props> = ({ tweets }) => {
   const { data: session } = useSession()
   const [userId, setUserId] = useState<string>("")
   
-  // fetch user likes
+  // fetch userId from session
   useEffect(() => {
     if (session) {
-      const fetchLikes = async () => {
+      const fetchUserId = async () => {
         try {
           const res = await fetch(`/api/getUserId?email=${session.user?.email}`);
           const data = await res.json();
@@ -24,7 +25,7 @@ const CardGrid: NextPage<Props> = ({ tweets }) => {
           console.error(err);
         }
       };
-      fetchLikes();
+      fetchUserId();
     }
   })
   

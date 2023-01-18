@@ -7,6 +7,7 @@ interface Data {
     message: string
   }
 
+  // Get all likes for a tweet
 export default async (
     req: NextApiRequest,
     res: NextApiResponse<Data>

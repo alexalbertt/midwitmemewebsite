@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '../../lib/prisma';
 
+// Get the user id from the email
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     // get the user email from the request query

@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
 import { prisma } from '../../lib/prisma';
 
+// Remove a like
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const session = await getSession({ req });

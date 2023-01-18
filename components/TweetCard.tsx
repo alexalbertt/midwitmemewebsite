@@ -17,7 +17,9 @@ interface TweetCardProps {
 const TweetCard = (Props: TweetCardProps) => {
   const { data: session } = useSession()
 
+  // State for all the likes for a tweet
   const [likes, setLikes] = useState<Like[]>([])
+  // State for the likeId from the like of the tweet from the current user if it exists
   const [likedTweetId, setLikedTweetId] = useState<string>("")
 
   const likeCard = async () => {
@@ -73,6 +75,7 @@ const TweetCard = (Props: TweetCardProps) => {
   }
 
   useEffect(() => {
+    // Fetch all the likes for a tweet
     const fetchLikes = async () => {
       try {
         const res = await fetch(`/api/getLikes?tweetId=${Props.tweet.tweetId}`);
@@ -82,6 +85,7 @@ const TweetCard = (Props: TweetCardProps) => {
         console.error(err);
       }
     };
+    // Check if the user has liked the tweet
     const checkLikes = async () => {
       likes.forEach((like) => {
         if (like.userId === Props.userId) {
