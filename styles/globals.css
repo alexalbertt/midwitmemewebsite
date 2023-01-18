@@ -73,6 +73,10 @@
   }
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -104,4 +108,9 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.heart-icon svg {
+  border: 1px solid red;
+  padding: 10px;
 }

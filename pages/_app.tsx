@@ -1,6 +1,15 @@
 import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import 'tailwindcss/tailwind.css'
+import { SessionProvider } from 'next-auth/react';
+import { AppProps } from 'next/app';
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const App = ({ Component, pageProps }: AppProps) => {
+  return (
+    <SessionProvider session={pageProps.session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  );
+};
+
+export default App;
