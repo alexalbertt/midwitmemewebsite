@@ -12,8 +12,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // get the tweetId from the request query
     const tweetId = req.body.tweetId as string;
 
-
-
     if (session?.user?.email) {
       // create a new like
       const newLike = await prisma.like.create({
